@@ -1,0 +1,48 @@
+.img-thumbnail img {
+	width: 100%;
+}
+
+.img-thumbnail {
+	padding: 0;
+}
+
+.img-thumbnail .caption-full {
+	padding: 9px;
+}
+
+.img-thumbnail {
+	margin: 20px 0;
+}
+
+.delete-form {
+	display: inline;
+}
+
+.center{
+	text-align: center;
+}
+
+hr {
+	margin: 7px 0 0 0;
+}
+
+.seven-px {
+	margin: 7px 0 0 0;
+}
+
+.row {
+	margin: 0;
+}
+
+.submit-buttons {
+	text-align: center;
+}
+
+.forms{
+	width:30%; 
+	margin: 0 auto;
+}
+
+#courtPicturesHTML {
+	display: none;
+}

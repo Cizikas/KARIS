@@ -1,0 +1,36 @@
+<%- include("../partials/header") %>
+<div class="container">
+	<div class="row">
+		<h1 style="text-align: center; margin: 25px auto">Atnaujinti <%= court.name %></h1>
+	</div>
+		<div style="width:30%; margin: 0 auto;">
+			<form action="/courts/<%= court._id %>?_method=PUT" method="POST">
+				<div class="form-group">
+					<input class="form-control" type="text" name="court[name]" value="<%= court.name %>">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="court[image]" value="<%= court.image %>">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="number" name="court[price]" value="<%= court.price %>" min="0.01" step="0.01">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="court[description]" value="<%= court.description %>">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="telnumber" placeholder="<%= court.telnumber %>">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="city" placeholder="<%= court.city %>">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="street" placeholder="<%= court.street %>">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-lg btn-primary btn-block">Patvirtinti!</button>	
+				</div>
+			</form>
+			<a href="/courts">Atgal!</a>
+		</div>	
+</div>
+<%- include("../partials/footer") %>

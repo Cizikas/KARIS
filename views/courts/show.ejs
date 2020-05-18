@@ -1,0 +1,107 @@
+<%- include("../partials/header") %>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<p class="lead">
+					KARIS
+				</p>
+				<div class="list-group">
+					<div id="aboutCourt" class="list-group-item active">Apie aikštelę</div>
+					<div id="courtPictures" class="list-group-item">Nuotraukų galerija</div>
+				</div>
+				<div class="seven-px">
+					Tel. numeris:
+					<% if(court.telnumber && court.telnumber.charAt(0) === "3"){ %>+<% } %><%= court.telnumber %>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div id="aboutCourtHTML">
+					<div class="img-thumbnail">
+						<img class="img-responsive" src="<%= court.image %>">
+						<div class="caption-full">
+							<h4 class="float-right">
+								<%= court.price %>€/valandą
+							</h4>
+							<h4>
+								<a>
+									<%= court.name %>
+								</a>
+							</h4>
+							<p>
+								<%= court.description%>
+							</p>
+							<p>
+								Adresas:
+								<%= court.city %>,
+									<%= court.street %>
+							</p>
+							<p>
+								<em>Patalpinta -
+									<%= court.author.username %>
+								</em>
+							</p>
+							<% if(currentUser && court.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+								<a class="btn btn-warning" href="/courts/<%= court._id %>/edit">Atnaujinti</a>
+								<form class="delete-form" method="POST" action="/courts/<%= court._id %>?_method=DELETE">
+									<button class="btn btn-danger">
+										Ištrinti
+									</button>
+								</form>
+								<% } %>
+						</div>
+					</div>
+					<p class="center">
+						Dėl nuomos skambinti nurodytu telefonu:
+						<% if(court.telnumber && court.telnumber.charAt(0) === "3"){ %>+<% } %><%= court.telnumber %>
+					</p>
+					<div class="card bg-light">
+						<div class="row">
+							<div class="col-md-6">
+								<h2 class="seven-px">
+									Komentarai
+								</h2>
+							</div>
+							<div class="text-right col-md-6">
+								<a class="btn btn-success seven-px" href="/courts/<%= court._id %>/comments/new">Pridėti komentarą</a>
+							</div>
+						</div>
+						<hr>
+						<% court.comments.forEach(function(comment){ %>
+							<div class="row">
+								<div class="col-md-12 seven-px">
+									<strong>
+										<%= comment.author.username %>
+									</strong>
+									<span class="float-right">
+										<p>
+											Patalpinta
+											<br>
+											<%= comment.submitDate.getFullYear() %>-<%= comment.submitDate.getMonth()+1 %>-<%= comment.submitDate.getDate() %>
+										</p>
+									</span>
+									<p>
+										<%= comment.text %>
+									</p>
+									<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+										<a href="/courts/<%= court._id %>/comments/<%= comment._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+										<form class="delete-form" method="POST" action="/courts/<%= court._id %>/comments/<%= comment._id %>?_method=DELETE">
+											<button class="btn btn-sm btn-danger">
+												Ištrinti
+											</button>
+											<% } %>
+										</form>
+								</div>
+							</div>
+							<hr>
+							<% }) %>
+					</div>
+				</div>
+				<div id="courtPicturesHTML">
+					<h1>Nuotraukos</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="/js/submenu.js"></script>
+
+	<%- include("../partials/footer") %>

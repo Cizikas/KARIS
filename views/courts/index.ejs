@@ -1,0 +1,42 @@
+<%- include("../partials/header") %>
+
+<div class="container">	
+	<header class="jumbotron">
+		<div class="container">
+			<h1> Visos krepšinio aikštelės! </h1>
+			<p><a class="btn btn-primary btn-lg" href="/courts/new">Pridėti naują krepšinio aikštelę</a></p>
+			<form action="/courts" method="GET" class="form-inline">
+			<div class="form-group">
+				<input type="text" name="search" placeholder="KARIS paieška..." class="form-control">
+				<input type="submit" value="Ieškoti" class="btn btn-primary">
+			</div>
+			</form>
+		</div>
+	</header>
+
+	<div class="row text-center">
+		<% if(courts.length===0){ %>
+		<p>
+			Atsiprašome, pagal jūsų užklausą nieko neradome, bandykite dar kartą įvesdami kitus raktąžodžius... 
+		</p>
+		<p>
+			Pvz. : Kaunas, Vilnius, patogi...
+		</p>
+		<% } %>
+			<% courts.forEach(function(court){ %>
+				<div class="col-md-3 col-sm-6"> 
+					<div class="img-thumbnail" style="margin: 10px auto">
+						<img style="width: 100%; height:180px" src="<%= court.image %>">
+						<div class="caption">
+							<h4><%= court.name %></h4>
+						</div>
+						<p>
+							<a href="/courts/<%= court._id %>" class="btn btn-primary">Daugiau Informacijos</a>
+						</p>
+					</div>
+				</div>
+		<% }); %>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>
