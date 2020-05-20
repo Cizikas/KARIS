@@ -20,7 +20,7 @@ middlewareObj.checkCourtOwnership = function(req, res, next) {
 			}
 		});
 	}else{
-		req.flash("error", "You need to be Logged In to do that")
+		req.flash("error", "Reikia būti prisijungus norint atlikti šį veiksmą.")
 		res.redirect("back");
 	}
 };

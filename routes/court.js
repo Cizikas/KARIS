@@ -20,8 +20,8 @@ var upload = multer({ storage: storage, fileFilter: imageFilter });
 
 cloudinary.config({
 	cloud_name: 'ddba8zzzr',
-	api_key: '..',
-	api_secret: '..'
+	api_key: 223794717535125,
+	api_secret: 'R57VAz8NeXmBE8j_LExlhpjPTKI'
 });
 
 //GET Visos krepsinio aikštelės
