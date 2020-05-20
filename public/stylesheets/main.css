@@ -46,3 +46,7 @@ hr {
 #courtPicturesHTML {
 	display: none;
 }
+
+.card {
+	margin: 20px 0 0 0;
+}

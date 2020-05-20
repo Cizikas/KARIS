@@ -4,27 +4,38 @@
 		<h1 style="text-align: center; margin: 25px auto">Naujos aikštelės kūrimas</h1>
 	</div>
 		<div style="width:30%; margin: 0 auto;">
-			<form action="/courts" method="POST">
+			<form action="/courts" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
-					<input class="form-control" type="text" name="name" placeholder="Pavadinimas">
+					<label>Pavadinimas</label>
+					<input class="form-control" type="text" name="court[name]" placeholder="Pavadinimas" required>
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="image" placeholder="Nuotraukos URL adresas">
+					<label for="image">Nuotrauka</label>
+					<input class="" type="file" id="image" accept="image/*" required name="image">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="number" name="price" placeholder="Kaina/valanda" min="0.01" step="0.01">
+					<label>Kaina/valanda (eur.)</label>
+					<input class="form-control" type="number" name="court[price]" placeholder="Kaina/valanda" min="0.01" step="0.01" required>
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="description" placeholder="description">
+					<label>Aprašymas</label>
+					<input class="form-control" type="text" name="court[description]" placeholder="Aprašymas" required>
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="number" name="telnumber" placeholder="Telefono numeris">
+					<label>Telefono numeris</label>
+					<input class="form-control" type="number" name="court[telnumber]" placeholder="Telefono numeris" required>
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="city" placeholder="Miestas">
+					<label>Orginalus aikštelės puslapio URL</label>
+<input class="form-control" type="text" name="court[mainURL]" placeholder="www.jūsų_tinklapio_URL.lt">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="street" placeholder="Gatvė">
+					<label>Miestas</label>
+					<input class="form-control" type="text" name="court[city]" placeholder="Miestas" required>
+				</div>
+				<div class="form-group">
+					<label>Gatvė</label>
+					<input class="form-control" type="text" name="court[street]" placeholder="Gatvė" required>
 				</div>
 				<div class="form-group">
 					<button class="btn btn-lg btn-primary btn-block">Paskelbti!</button>	

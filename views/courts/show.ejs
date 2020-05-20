@@ -54,6 +54,12 @@
 						Dėl nuomos skambinti nurodytu telefonu:
 						<% if(court.telnumber && court.telnumber.charAt(0) === "3"){ %>+<% } %><%= court.telnumber %>
 					</p>
+					<% if(court.mainURL){ %>
+					<p class="center">
+						Arba apsilankykite orginaliame puslapyje
+					</p>
+					<a href="https://<%= court.mainURL %>" target="_blank" class="btn btn-lg btn-primary btn-block center">Apsilankyti pagrindiniame aikštelės puslapyje!</a>	
+					<% } %>
 					<div class="card bg-light">
 						<div class="row">
 							<div class="col-md-6">

@@ -4,27 +4,38 @@
 		<h1 style="text-align: center; margin: 25px auto">Atnaujinti <%= court.name %></h1>
 	</div>
 		<div style="width:30%; margin: 0 auto;">
-			<form action="/courts/<%= court._id %>?_method=PUT" method="POST">
+			<form action="/courts/<%= court._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
+					<label>Pavadinimas</label>
 					<input class="form-control" type="text" name="court[name]" value="<%= court.name %>">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="court[image]" value="<%= court.image %>">
+					<label for="image">Nuotrauka</label>
+					<input class="" type="file" id="image" accept="image/*" name="image">
 				</div>
 				<div class="form-group">
+					<label>Kaina</label>
 					<input class="form-control" type="number" name="court[price]" value="<%= court.price %>" min="0.01" step="0.01">
 				</div>
 				<div class="form-group">
+					<label>Aprašymas</label>
 					<input class="form-control" type="text" name="court[description]" value="<%= court.description %>">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="telnumber" placeholder="<%= court.telnumber %>">
+					<label>Telefono numeris</label>
+					<input class="form-control" type="text" name="court[telnumber]" value="<%= court.telnumber %>">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="city" placeholder="<%= court.city %>">
+					<label>Orginalus aikštelės puslapio URL</label>
+					<input class="form-control" type="text" name="court[mainURL]" value="<%= court.mainURL %>">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="street" placeholder="<%= court.street %>">
+					<label>Miestas</label>
+					<input class="form-control" type="text" name="court[city]" value="<%= court.city %>">
+				</div>
+				<div class="form-group">
+					<label>Gatvė</label>
+					<input class="form-control" type="text" name="court[street]" value="<%= court.street %>">
 				</div>
 				<div class="form-group">
 					<button class="btn btn-lg btn-primary btn-block">Patvirtinti!</button>	
